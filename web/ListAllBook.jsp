@@ -6,14 +6,7 @@
     <title>Ứng dụng quản lý kho sách</title>
 </head>
 <body>
-<center>
-    <h1>QUẢN LÝ SÁCH</h1>
-    <h2>
-        <a href="/Bookstore/new">Thêm mới Sách</a> &nbsp;&nbsp;&nbsp; <a href="/Bookstore/list">Danh sách Sách</a>
-    </h2>
-</center>
-<hr>
-
+<jsp:include page="resource/header.jsp"></jsp:include>
 <div align="center">
     <table border="1" cellpadding="5">
         <caption>
@@ -42,4 +35,5 @@
     </table>
 </div>
 </body>
+<jsp:include page="resource/footer.jsp"></jsp:include>
 </html>
