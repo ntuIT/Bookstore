@@ -7,7 +7,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class DBUtils {
-    private static String jdbcURL="jdbc:mysql://localhost:3306/bookstore";
+    private static String jdbcURL="jdbc:mysql://localhost:3306/bookstore?useUnicode=true&characterEncoding=utf-8";
     private static String jdbcUsername="thomc";
     private static String jdbcPassword="12345678";
 
