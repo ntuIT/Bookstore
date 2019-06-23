@@ -54,8 +54,13 @@ public class BookManageServlet extends HttpServlet
                 case "/list":
                     listBook(request, response);
                     break;
-                case "search":
-                    searchBook(request, response);
+                case "/search_by_title":
+                    searchBook(request, response, 1);
+                    break;
+                case "/search_by_author":
+                    searchBook(request, response, 2);
+                    break;
+                // tìm theo tiêu đề thì đặt mode 1, theo tác giả thì mode 2
             }
         } catch (SQLException ex)
         {
@@ -147,10 +152,10 @@ public class BookManageServlet extends HttpServlet
 
     }
 
-    void searchBook(HttpServletRequest request, HttpServletResponse response)
+    void searchBook(HttpServletRequest request, HttpServletResponse response, int mode)
             throws SQLException, IOException, ServletException
     {
-        ArrayList<Book> list = DBUtils.getSameTitle(request.getParameter("txt_search"));
+        ArrayList<Book> list = DBUtils.getSameKeysearch(request.getParameter("txt_search"), mode);
         RequestDispatcher dispatcher = request.getRequestDispatcher("ListAllBook.jsp");
         request.setAttribute("listBook", list); 
         dispatcher.forward(request, response);

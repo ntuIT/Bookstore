@@ -66,15 +66,18 @@ public class DBUtils {
         dbConnect.close();
         return listBook;
     }
-    public static ArrayList<Book> getSameTitle(String pTitle) throws SQLException
+    public static ArrayList<Book> getSameKeysearch(String para, int mode) throws SQLException
     {
+        String sql = " SELECT book_id, title, author, price FROM book ";
+        if (mode==1)
+            sql += " WHERE title like '%"+para+"%' ";
+        else sql += " WHERE author like '%"+para+"%' ";
         ArrayList<Book> listBook = new ArrayList<>();
-        if (pTitle.equals(""))
+        if (para.equals(""))
             listBook = (ArrayList<Book>) getByAll();
         else {
             Connection dbConnect = ConnectDB();
-            String sql = " SELECT book_id, title, author, price FROM book " +
-               " WHERE title like '%"+pTitle+"%' ";
+
             Statement statement = dbConnect.createStatement();
             ResultSet dataLine = statement.executeQuery(sql);
 
