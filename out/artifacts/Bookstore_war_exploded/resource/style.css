@@ -6,6 +6,6 @@
 }
 
 #id_table{
-    background-image: url("background.jpg");
+    background: url("background.jpg");
     border: 3px;
 }

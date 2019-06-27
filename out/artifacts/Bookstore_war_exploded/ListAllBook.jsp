@@ -9,7 +9,7 @@
 <body>
 <jsp:include page="resource/header.jsp"></jsp:include>
 <div align="center">
-    <table class="id_table" border="1" cellpadding="5">
+    <table  class="id_table" border="1" cellpadding="5">
         <caption>
             <h2>Danh mục sách</h2>
         </caption>
