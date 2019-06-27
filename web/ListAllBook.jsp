@@ -3,12 +3,13 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <html>
 <head>
+    <link rel="stylesheet" href="resource/style.css">
     <title>Ứng dụng quản lý kho sách</title>
 </head>
 <body>
 <jsp:include page="resource/header.jsp"></jsp:include>
 <div align="center">
-    <table border="1" cellpadding="5">
+    <table class="id_table" border="1" cellpadding="5">
         <caption>
             <h2>Danh mục sách</h2>
         </caption>
