@@ -84,7 +84,16 @@
         <entry file="file://$PROJECT_DIR$/web/resource/footer.jsp">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="60">
-              <caret line="3" column="28" selection-start-line="3" selection-start-column="28" selection-end-line="3" selection-end-column="28" />
+              <caret line="3" selection-start-line="3" selection-end-line="3" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/web/resource/style.css">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="80">
+              <caret line="4" column="26" selection-start-line="4" selection-start-column="26" selection-end-line="4" selection-end-column="26" />
             </state>
           </provider>
         </entry>
@@ -92,7 +101,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/web/ListAllBook.jsp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="100">
+            <state relative-caret-position="-456">
               <caret line="5" column="51" selection-start-line="5" selection-start-column="51" selection-end-line="5" selection-end-column="51" />
             </state>
           </provider>
@@ -121,9 +130,9 @@
         <option value="$PROJECT_DIR$/web/resource/header.jsp" />
         <option value="$PROJECT_DIR$/src/jp/ivs/controller/BookManageServlet.java" />
         <option value="$PROJECT_DIR$/src/jp/ivs/model/DBUtils.java" />
-        <option value="$PROJECT_DIR$/web/resource/footer.jsp" />
         <option value="$PROJECT_DIR$/web/ListAllBook.jsp" />
         <option value="$PROJECT_DIR$/web/resource/style.css" />
+        <option value="$PROJECT_DIR$/web/resource/footer.jsp" />
       </list>
     </option>
   </component>
@@ -157,12 +166,6 @@
               <item name="Bookstore" type="b2602c69:ProjectViewProjectNode" />
               <item name="Bookstore" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Bookstore" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Bookstore" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="ivs" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="Bookstore" type="b2602c69:ProjectViewProjectNode" />
@@ -298,12 +301,12 @@
       <updated>1561206946562</updated>
       <workItem from="1561206954065" duration="7654000" />
       <workItem from="1561255348243" duration="648000" />
-      <workItem from="1561579857738" duration="4757000" />
+      <workItem from="1561579857738" duration="6190000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="13059000" />
+    <option name="totallyTimeSpent" value="14492000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
@@ -424,24 +427,24 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/web/ListAllBook.jsp">
+    <entry file="file://$PROJECT_DIR$/web/resource/style.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="100">
-          <caret line="5" column="51" selection-start-line="5" selection-start-column="51" selection-end-line="5" selection-end-column="51" />
+        <state relative-caret-position="80">
+          <caret line="4" column="26" selection-start-line="4" selection-start-column="26" selection-end-line="4" selection-end-column="26" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/web/resource/style.css">
+    <entry file="file://$PROJECT_DIR$/web/ListAllBook.jsp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="140">
-          <caret line="7" column="22" selection-start-line="7" selection-start-column="22" selection-end-line="7" selection-end-column="22" />
+        <state relative-caret-position="-456">
+          <caret line="5" column="51" selection-start-line="5" selection-start-column="51" selection-end-line="5" selection-end-column="51" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/web/resource/footer.jsp">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="60">
-          <caret line="3" column="28" selection-start-line="3" selection-start-column="28" selection-end-line="3" selection-end-column="28" />
+          <caret line="3" selection-start-line="3" selection-end-line="3" />
         </state>
       </provider>
     </entry>
