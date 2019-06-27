@@ -7,14 +7,7 @@
     <meta charset="utf-8">
 </head>
 <body>
-<center>
-    <h1>QUẢN LÝ SÁCH</h1>
-    <h2>
-        <a href="/Bookstore/new">Thêm mới Sách</a> &nbsp;&nbsp;&nbsp; <a
-            href="/Bookstore/list">Danh Sách</a>
-
-    </h2>
-</center>
+<jsp:include page="resource/header.jsp"></jsp:include>
 <hr>
 <div align="center">
     <form action="update" method="post">
