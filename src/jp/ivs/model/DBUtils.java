@@ -51,17 +51,8 @@ public class DBUtils {
         Connection dbConnect = ConnectDB();
         String sql = " SELECT book_id, title, author, price FROM book ";
         Statement statement = dbConnect.createStatement();
-        ResultSet bangKetQua = statement.executeQuery(sql); //get từng dòng dữ liệu bằng cái này
-        //region parse các dòng data về list
-        while (bangKetQua.next())   // khi vẫn còn next được (còn bản ghi)
-        {   // lấy dữ liệu về
-            int id = bangKetQua.getInt("book_id");  // Lấy mã
-            String title = bangKetQua.getString("title");  // Lấy tiêu đề
-            String author = bangKetQua.getString("author");  // lấy tác giả
-            float price = bangKetQua.getFloat("price");	// lấy giá
-            listBook.add(new Book(id, title, author, price));
-        }
-        bangKetQua.close(); //endregion
+        ResultSet dataLine = statement.executeQuery(sql); //get từng dòng dữ liệu bằng cái này
+        Sharing.parsingToBookList(dataLine, (ArrayList<Book>) listBook);
         statement.close();
         dbConnect.close();
         return listBook;
@@ -80,9 +71,7 @@ public class DBUtils {
 
             Statement statement = dbConnect.createStatement();
             ResultSet dataLine = statement.executeQuery(sql);
-
             Sharing.parsingToBookList(dataLine, listBook);
-
             statement.close();
             dbConnect.close();
         } return listBook;
