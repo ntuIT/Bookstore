@@ -7,7 +7,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class DBUtils {
-    private static String jdbcURL="jdbc:mysql://localhost:3306/bookstore?useUnicode=true&characterEncoding=utf-8";
+    private static String jdbcURL="jdbc:mysql://localhost:3306/bookstore";
     private static String jdbcUsername="thomc";
     private static String jdbcPassword="12345678";
 
@@ -51,8 +51,17 @@ public class DBUtils {
         Connection dbConnect = ConnectDB();
         String sql = " SELECT book_id, title, author, price FROM book ";
         Statement statement = dbConnect.createStatement();
-        ResultSet dataLine = statement.executeQuery(sql); //get từng dòng dữ liệu bằng cái này
-        Sharing.parsingToBookList(dataLine, (ArrayList<Book>) listBook);
+        ResultSet bangKetQua = statement.executeQuery(sql); //get từng dòng dữ liệu bằng cái này
+        //region parse các dòng data về list
+        while (bangKetQua.next())   // khi vẫn còn next được (còn bản ghi)
+        {   // lấy dữ liệu về
+            int id = bangKetQua.getInt("book_id");  // Lấy mã
+            String title = bangKetQua.getString("title");  // Lấy tiêu đề
+            String author = bangKetQua.getString("author");  // lấy tác giả
+            float price = bangKetQua.getFloat("price");	// lấy giá
+            listBook.add(new Book(id, title, author, price));
+        }
+        bangKetQua.close(); //endregion
         statement.close();
         dbConnect.close();
         return listBook;
@@ -71,7 +80,9 @@ public class DBUtils {
 
             Statement statement = dbConnect.createStatement();
             ResultSet dataLine = statement.executeQuery(sql);
+
             Sharing.parsingToBookList(dataLine, listBook);
+
             statement.close();
             dbConnect.close();
         } return listBook;

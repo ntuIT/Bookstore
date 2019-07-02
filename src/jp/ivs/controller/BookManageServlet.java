@@ -110,7 +110,7 @@ public class BookManageServlet extends HttpServlet
         dispatcher.forward(request, response);    //nhảy đến trang BookEdit.jsp
     }
 
-    void setBookFromRequest(HttpServletRequest request, Book book) //cài thông tin từ request vào 1 book
+    void setBookFromRequest(HttpServletRequest request, Book book) //lấy thông tin 1book từ request
     {
         book.setTitle(request.getParameter("title"));
         book.setAuthor(request.getParameter("author"));
