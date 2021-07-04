@@ -6,14 +6,7 @@
     <title>Ứng dụng quản lý kho sách</title>
 </head>
 <body>
-<center>
-    <h1>QUẢN LÝ SÁCH</h1>
-    <h2>
-        <a href="/Bookstore/new">Thêm mới Sách</a> &nbsp;&nbsp;&nbsp; <a
-            href="/Bookstore/list">Danh sách Sách</a>
-
-    </h2>
-</center>
+<jsp:include page="resource/header.jsp"></jsp:include>
 <hr>
 <div align="center">
     <h2>Chi tiết sách</h2>

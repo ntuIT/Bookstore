@@ -3,6 +3,7 @@ package jp.ivs.controller;
 
 import java.io.IOException;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.servlet.RequestDispatcher;
@@ -24,6 +25,7 @@ public class BookManageServlet extends HttpServlet
     {
         response.setContentType("text/html;charset=UTF-8");
         request.setCharacterEncoding("utf-8");
+        response.setCharacterEncoding("UTF-8");
         String action = request.getServletPath(); // lấy hành động action gọi từ view
         try {
             switch (action)
@@ -52,6 +54,13 @@ public class BookManageServlet extends HttpServlet
                 case "/list":
                     listBook(request, response);
                     break;
+                case "/search_by_title":
+                    searchBook(request, response, 1);
+                    break;
+                case "/search_by_author":
+                    searchBook(request, response, 2);
+                    break;
+                // tìm theo tiêu đề thì đặt mode 1, theo tác giả thì mode 2
             }
         } catch (SQLException ex)
         {
@@ -112,6 +121,8 @@ public class BookManageServlet extends HttpServlet
     private void insertBook(HttpServletRequest request, HttpServletResponse response)
             throws SQLException, IOException
     {
+        response.setContentType("text/html;charset=UTF-8");
+        request.setCharacterEncoding("utf-8");
         Book newBook = new Book();
         setBookFromRequest(request, newBook);
         DBUtils.insert(newBook);
@@ -125,6 +136,8 @@ public class BookManageServlet extends HttpServlet
         // tạo model book từ những thông tin request về:
         int id = Integer.parseInt(request.getParameter("id"));
         Book bookUpdate = new Book(id);
+        response.setContentType("text/html;charset=UTF-8");
+        request.setCharacterEncoding("utf-8");
         setBookFromRequest(request, bookUpdate);
         DBUtils.update(bookUpdate);
         response.sendRedirect("list");
@@ -138,12 +151,22 @@ public class BookManageServlet extends HttpServlet
         response.sendRedirect("list");
 
     }
+
+    void searchBook(HttpServletRequest request, HttpServletResponse response, int mode)
+            throws SQLException, IOException, ServletException
+    {
+        ArrayList<Book> list = DBUtils.getSameKeysearch(request.getParameter("txt_search"), mode);
+        RequestDispatcher dispatcher = request.getRequestDispatcher("ListAllBook.jsp");
+        request.setAttribute("listBook", list); 
+        dispatcher.forward(request, response);
+    }
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException
     {
         // TODO Auto-generated method stub
         response.setContentType("text/html;charset=UTF-8");
         request.setCharacterEncoding("utf-8");
+        response.setCharacterEncoding("UTF-8");
         doGet(request, response);
     }
 

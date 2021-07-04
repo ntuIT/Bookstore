@@ -1,0 +1,11 @@
+
+#id_footer{
+    color: blueviolet;
+    text-align: center;
+    align-content: center;
+}
+
+#id_table{
+    background: url("background.jpg");
+    border: 3px;
+}

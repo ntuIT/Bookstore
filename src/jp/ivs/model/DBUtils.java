@@ -1,13 +1,15 @@
 package jp.ivs.model;
 
+import jp.ivs.helper.Sharing;
+
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
 public class DBUtils {
     private static String jdbcURL="jdbc:mysql://localhost:3306/bookstore";
-    private static String jdbcUsername="root";
-    private static String jdbcPassword="mySQL@2019";
+    private static String jdbcUsername="thomc";
+    private static String jdbcPassword="12345678";
 
     protected static Connection ConnectDB() throws SQLException
     {
@@ -64,11 +66,32 @@ public class DBUtils {
         dbConnect.close();
         return listBook;
     }
+    public static ArrayList<Book> getSameKeysearch(String para, int mode) throws SQLException
+    {
+        String sql = " SELECT book_id, title, author, price FROM book ";
+        if (mode==1)
+            sql += " WHERE title like '%"+para+"%' ";
+        else sql += " WHERE author like '%"+para+"%' ";
+        ArrayList<Book> listBook = new ArrayList<>();
+        if (para.equals(""))
+            listBook = (ArrayList<Book>) getByAll();
+        else {
+            Connection dbConnect = ConnectDB();
+
+            Statement statement = dbConnect.createStatement();
+            ResultSet dataLine = statement.executeQuery(sql);
+
+            Sharing.parsingToBookList(dataLine, listBook);
+
+            statement.close();
+            dbConnect.close();
+        } return listBook;
+    }
 
     public static void delete(int idBook) throws SQLException
     {
         Connection dbConnect = ConnectDB();
-        String sql = "DELETE FROM book where book_id = ?";
+        String sql = "DELETE FROM book where book_id = ? ";
         PreparedStatement statement = dbConnect.prepareStatement(sql);
         statement.setInt(1, idBook);
         statement.executeUpdate();
@@ -80,8 +103,8 @@ public class DBUtils {
     {
         Connection dbConnect = ConnectDB();
 
-        String sql = "UPDATE book SET title = ?, author = ?, price = ?";
-        sql += " WHERE book_id = ?";
+        String sql = "UPDATE book SET title = ?, author = ?, price = ? ";
+        sql += " WHERE book_id = ? ";
         // truyền tham số
         PreparedStatement statement = dbConnect.prepareStatement(sql);
         statement.setString(1, bookUpdate.getTitle());
@@ -98,7 +121,7 @@ public class DBUtils {
     {
         Connection dbConnect = ConnectDB();
 
-        String sql = "SELECT * FROM book WHERE book_id = ?";
+        String sql = "SELECT * FROM book WHERE book_id = ? ";
         PreparedStatement statement = dbConnect.prepareStatement(sql);
         statement.setInt(1, id);
         ResultSet resultSet = statement.executeQuery();
